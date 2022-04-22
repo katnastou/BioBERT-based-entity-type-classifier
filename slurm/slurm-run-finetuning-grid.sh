@@ -117,6 +117,7 @@ srun python run_ner_consensus.py \
     
 
 result=$(egrep '^INFO:tensorflow:  eval_accuracy' logs/${SLURM_JOB_ID}.err | perl -pe 's/.*accuracy \= (\d)\.(\d{2})(\d{2})\d+$/$2\.$3/')
+f_score=$(egrep '^INFO:tensorflow:  f1-score' logs/${SLURM_JOB_ID}.err | perl -pe 's/.*f1-score \= (\d)\.(\d{2})(\d{2})\d+$/$2\.$3/')
 echo -n 'TEST-RESULT'$'\t'
 echo -n 'init_checkpoint'$'\t'"$INIT_CKPT"$'\t'
 echo -n 'data_dir'$'\t'"$DATASET_DIR"$'\t'
@@ -124,6 +125,7 @@ echo -n 'max_seq_length'$'\t'"$MAX_SEQ_LENGTH"$'\t'
 echo -n 'train_batch_size'$'\t'"$BATCH_SIZE"$'\t'
 echo -n 'learning_rate'$'\t'"$LEARNING_RATE"$'\t'
 echo -n 'num_train_epochs'$'\t'"$EPOCHS"$'\t'
+echo -n 'f-score'$'\t'"$f_score"$'\t'
 echo -n 'accuracy'$'\t'"$result"$'\n'
 
 

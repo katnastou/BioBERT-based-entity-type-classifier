@@ -1,0 +1,60 @@
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	96	[94.5, 94.52, 94.52]	94.51	0.0094
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	96	[94.52, 94.51]	94.52	0.0050
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	96	[94.5, 94.41, 94.49]	94.47	0.0403
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	96	[94.48, 94.44, 94.51]	94.48	0.0287
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	96	[94.4, 94.33, 94.43]	94.39	0.0419
+models/biobert_large/bert_model.ckpt	learning_rate	1e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	96	[94.44, 94.47, 94.38]	94.43	0.0374
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	96	[94.39, 94.39]	94.39	0.0000
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	96	[94.34, 94.36]	94.35	0.0100
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	96	[94.24, 94.21, 94.36]	94.27	0.0648
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	96	[94.24, 94.21, 94.19]	94.21	0.0205
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	96	[94.24, 94.21, 94.23]	94.23	0.0125
+models/biobert_large/bert_model.ckpt	learning_rate	2e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	96	[94.2, 94.09, 94.1]	94.13	0.0497
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	96	[94.12, 94.13, 94.04]	94.10	0.0403
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	96	[94.11, 94.08, 94.04]	94.08	0.0287
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	96	[94.01, 93.96, 94.0]	93.99	0.0216
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	96	[94.02, 93.99, 93.98]	94.00	0.0170
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	96	[94.0, 93.9]	93.95	0.0500
+models/biobert_large/bert_model.ckpt	learning_rate	3e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	96	[93.95, 93.94, 93.85]	93.91	0.0450
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	96	[93.54, 93.6, 93.51]	93.55	0.0374
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	96	[93.53, 93.57]	93.55	0.0200
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	96	[93.44, 93.47, 93.46]	93.46	0.0125
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	96	[93.41, 93.41, 93.43]	93.42	0.0094
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	96	[93.29, 93.29, 93.26]	93.28	0.0141
+models/biobert_large/bert_model.ckpt	learning_rate	5e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	96	[93.38, 93.21, 93.42]	93.34	0.0910
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	2	train_batch_size	32	max_seq_length	96	[94.43, 94.4, 94.46]	94.43	0.0245
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	2	train_batch_size	64	max_seq_length	96	[94.33, 94.4, 94.43]	94.39	0.0419
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	3	train_batch_size	32	max_seq_length	96	[94.49, 94.42, 94.49]	94.47	0.0330
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	3	train_batch_size	64	max_seq_length	96	[94.42, 94.44, 94.5]	94.45	0.0340
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	4	train_batch_size	32	max_seq_length	96	[94.46, 94.44]	94.45	0.0100
+models/biobert_large/bert_model.ckpt	learning_rate	5e-6	num_train_epochs	4	train_batch_size	64	max_seq_length	96	[94.42, 94.44, 94.43]	94.43	0.0082
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	256	[94.69, 94.7, 94.68]	94.69	0.0082
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	256	[94.73, 94.69, 94.68]	94.70	0.0216
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	256	[94.88, 94.84]	94.86	0.0200
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	256	[94.78, 94.82, 94.83]	94.81	0.0216
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	256	[94.8, 94.81, 94.84]	94.82	0.0170
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	1e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	256	[94.82, 94.83, 94.83]	94.83	0.0047
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	256	[94.92, 94.93, 94.89]	94.91	0.0170
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	256	[94.86, 94.9, 94.9]	94.89	0.0189
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	256	[94.91, 94.89, 94.88]	94.89	0.0125
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	256	[94.91, 94.93, 94.87]	94.90	0.0249
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	256	[94.91, 94.94, 94.95]	94.93	0.0170
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	256	[94.84, 94.84, 94.88]	94.85	0.0189
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	256	[94.87, 94.94]	94.91	0.0350
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	256	[94.88, 94.93, 94.93]	94.91	0.0236
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	256	[94.84, 94.9, 94.87]	94.87	0.0245
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	256	[94.91, 94.89, 94.87]	94.89	0.0163
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	256	[94.73, 94.83, 94.63]	94.73	0.0816
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	3e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	256	[94.8, 94.77]	94.78	0.0150
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	2	train_batch_size	32	max_seq_length	256	[94.69, 94.68, 94.76]	94.71	0.0356
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	2	train_batch_size	64	max_seq_length	256	[94.71, 94.81, 94.7]	94.74	0.0497
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	3	train_batch_size	32	max_seq_length	256	[94.77, 94.66, 94.63]	94.69	0.0602
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	3	train_batch_size	64	max_seq_length	256	[94.75, 94.74, 94.68]	94.72	0.0309
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	4	train_batch_size	32	max_seq_length	256	[94.53, 94.6, 94.69]	94.61	0.0655
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-5	num_train_epochs	4	train_batch_size	64	max_seq_length	256	[94.62, 94.62, 94.61]	94.62	0.0047
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	2	train_batch_size	32	max_seq_length	256	[94.01, 94.2, 93.94]	94.05	0.1098
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	2	train_batch_size	64	max_seq_length	256	[94.2, 94.21, 93.89]	94.10	0.1485
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	3	train_batch_size	32	max_seq_length	256	[94.51, 94.38, 94.2]	94.36	0.1271
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	3	train_batch_size	64	max_seq_length	256	[94.39, 94.41, 94.22]	94.34	0.0852
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	4	train_batch_size	32	max_seq_length	256	[94.47, 94.52, 94.61]	94.53	0.0579
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	5e-6	num_train_epochs	4	train_batch_size	64	max_seq_length	256	[94.6, 94.55, 94.58]	94.58	0.0205

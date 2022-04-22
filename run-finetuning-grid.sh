@@ -45,7 +45,7 @@ for repetition in `seq $REPETITIONS`; do
                         done
                         echo "Submitting job with params $model $data_dir $seq_len $batch_size $learning_rate $epochs"
                         job_id=$(
-                        sbatch slurm/slurm-run.sh \
+                        sbatch slurm/slurm-run-finetuning-grid.sh \
                             $model \
                             $data_dir \
                             $seq_len \

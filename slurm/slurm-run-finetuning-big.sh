@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=6
 
 # Allocate enough memory.
-#SBATCH --mem=160G
+#SBATCH --mem=200G
 #SBATCH -p gpu
 ###SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
@@ -38,11 +38,11 @@ OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
 #comment if you don't want to delete output
-function on_exit {
-   rm -rf "$OUTPUT_DIR"
-   rm -f jobs/$SLURM_JOBID
-}
-trap on_exit EXIT
+# function on_exit {
+#    rm -rf "$OUTPUT_DIR"
+#    rm -f jobs/$SLURM_JOBID
+# }
+# trap on_exit EXIT
 
 #check for all parameters
 if [ "$#" -ne 9 ]; then
@@ -50,7 +50,8 @@ if [ "$#" -ne 9 ]; then
     exit 1
 fi
 #command example from BERT folder in projappl dir:
-#sbatch slurm/slurm-run.sh models/biobert_large scratchdata/4-class-10K-w20 64 32 5e-6 4 consensus models/biobert_large/bert_model.ckpt
+#sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
+
 
 #models --> symlink to models dir in scratch
 #scratchdata --> symlink to data dir in scratch
@@ -116,6 +117,7 @@ srun python run_ner_consensus.py \
     
 
 result=$(egrep '^INFO:tensorflow:  eval_accuracy' logs/${SLURM_JOB_ID}.err | perl -pe 's/.*accuracy \= (\d)\.(\d{2})(\d{2})\d+$/$2\.$3/')
+f_score=$(egrep '^INFO:tensorflow:  f1-score' logs/${SLURM_JOB_ID}.err | perl -pe 's/.*f1-score \= (\d)\.(\d{2})(\d{2})\d+$/$2\.$3/')
 echo -n 'TEST-RESULT'$'\t'
 echo -n 'init_checkpoint'$'\t'"$INIT_CKPT"$'\t'
 echo -n 'data_dir'$'\t'"$DATASET_DIR"$'\t'
@@ -123,6 +125,7 @@ echo -n 'max_seq_length'$'\t'"$MAX_SEQ_LENGTH"$'\t'
 echo -n 'train_batch_size'$'\t'"$BATCH_SIZE"$'\t'
 echo -n 'learning_rate'$'\t'"$LEARNING_RATE"$'\t'
 echo -n 'num_train_epochs'$'\t'"$EPOCHS"$'\t'
+echo -n 'f-score'$'\t'"$f_score"$'\t'
 echo -n 'accuracy'$'\t'"$result"$'\n'
 
 

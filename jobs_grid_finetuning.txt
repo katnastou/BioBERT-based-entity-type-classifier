@@ -1,0 +1,539 @@
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 2
+Submitted batch job 11425759
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 2
+Submitted batch job 11425766
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 3
+Submitted batch job 11425767
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 3
+Submitted batch job 11425770
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 4
+Submitted batch job 11425913
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 4
+Submitted batch job 11425926
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 2
+Submitted batch job 11425932
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 2
+Submitted batch job 11425935
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 3
+Submitted batch job 11425940
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 3
+Submitted batch job 11425943
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 4
+Submitted batch job 11425950
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 4
+Submitted batch job 11425956
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 2
+Submitted batch job 11425963
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 2
+Submitted batch job 11425967
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 3
+Submitted batch job 11425970
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 3
+Submitted batch job 11425975
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 4
+Submitted batch job 11425985
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 4
+Submitted batch job 11425988
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 2
+Submitted batch job 11425994
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 2
+Submitted batch job 11425998
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 3
+Submitted batch job 11426004
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 3
+Submitted batch job 11426007
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 4
+Submitted batch job 11426011
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 4
+Submitted batch job 11426014
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 2
+Submitted batch job 11426016
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 2
+Submitted batch job 11426020
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 3
+Submitted batch job 11426026
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 3
+Submitted batch job 11426031
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 4
+Submitted batch job 11426035
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 4
+Submitted batch job 11426042
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 2
+Submitted batch job 11426049
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 2
+Submitted batch job 11426054
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 3
+Submitted batch job 11426058
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 3
+Submitted batch job 11426061
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 4
+Submitted batch job 11426065
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 4
+Submitted batch job 11426071
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 2
+Submitted batch job 11426074
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 2
+Submitted batch job 11426079
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 3
+Submitted batch job 11426083
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 3
+Submitted batch job 11426088
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 4
+Submitted batch job 11426093
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 4
+Submitted batch job 11426097
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 2
+Submitted batch job 11426098
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 2
+Submitted batch job 11426102
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 3
+Submitted batch job 11426106
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 3
+Submitted batch job 11426110
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 4
+Submitted batch job 11426112
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 4
+Submitted batch job 11426118
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 2
+Submitted batch job 11426128
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 2
+Submitted batch job 11426133
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 3
+Submitted batch job 11426137
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 3
+Submitted batch job 11426139
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 4
+Submitted batch job 11426144
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 4
+Submitted batch job 11426147
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 2
+Submitted batch job 11426154
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 2
+Submitted batch job 11426158
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 3
+Submitted batch job 11426159
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 3
+Submitted batch job 11426161
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 4
+Submitted batch job 11426167
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 4
+Submitted batch job 11426170
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 2
+Submitted batch job 11426173
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 2
+Submitted batch job 11426175
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 3
+Submitted batch job 11426177
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 3
+Submitted batch job 11426179
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 4
+Submitted batch job 11426182
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 4
+Submitted batch job 11426186
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 2
+Submitted batch job 11426191
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 2
+Submitted batch job 11426192
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 3
+Submitted batch job 11426196
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 3
+Submitted batch job 11426200
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 4
+Submitted batch job 11426205
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 4
+Submitted batch job 11426208
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 2
+Submitted batch job 11426212
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 2
+Submitted batch job 11426216
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 3
+Submitted batch job 11426218
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 3
+Submitted batch job 11426219
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 4
+Submitted batch job 11426222
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 4
+Submitted batch job 11426226
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 2
+Submitted batch job 11426228
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 2
+Submitted batch job 11426231
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 3
+Submitted batch job 11426234
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 3
+Submitted batch job 11426257
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 4
+Submitted batch job 11426259
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 4
+Submitted batch job 11426264
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 2
+Submitted batch job 11426268
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 2
+Submitted batch job 11426271
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 3
+Submitted batch job 11426278
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 3
+Submitted batch job 11426284
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 4
+Submitted batch job 11426289
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 4
+Submitted batch job 11426294
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 2
+Submitted batch job 11426298
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 2
+Submitted batch job 11426300
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 3
+Submitted batch job 11426303
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 3
+Submitted batch job 11426306
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 4
+Submitted batch job 11426309
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 4
+Submitted batch job 11426311
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 2
+Submitted batch job 11426313
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 2
+Submitted batch job 11426316
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 3
+Submitted batch job 11426318
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 3
+Submitted batch job 11426322
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 4
+Submitted batch job 11426330
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 4
+Submitted batch job 11426335
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 2
+Submitted batch job 11426340
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 2
+Submitted batch job 11426343
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 3
+Submitted batch job 11426348
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 3
+Submitted batch job 11426351
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 4
+Submitted batch job 11426355
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 4
+Submitted batch job 11426360
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 2
+Submitted batch job 11426364
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 2
+Submitted batch job 11426369
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 3
+Submitted batch job 11426375
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 3
+Submitted batch job 11426382
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 4
+Submitted batch job 11426388
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 4
+Submitted batch job 11426391
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 2
+Submitted batch job 11426393
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 2
+Submitted batch job 11426397
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 3
+Submitted batch job 11426401
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 3
+Submitted batch job 11426404
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 4
+Submitted batch job 11426406
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 4
+Submitted batch job 11426410
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 2
+Submitted batch job 11426412
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 2
+Submitted batch job 11426415
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 3
+Submitted batch job 11426421
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 3
+Submitted batch job 11426425
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-5 4
+Submitted batch job 11426514
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-5 4
+Submitted batch job 11426516
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 2
+Submitted batch job 11426527
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 2
+Submitted batch job 11426538
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 3
+Submitted batch job 11426543
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 3
+Submitted batch job 11426546
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 3e-5 4
+Submitted batch job 11426551
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 3e-5 4
+Submitted batch job 11426559
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 2
+Submitted batch job 11426564
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 2
+Submitted batch job 11426568
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 3
+Submitted batch job 11426572
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 3
+Submitted batch job 11426574
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 2e-5 4
+Submitted batch job 11426578
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 2e-5 4
+Submitted batch job 11426580
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 2
+Submitted batch job 11426594
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 2
+Submitted batch job 11426613
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 3
+Submitted batch job 11426629
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 3
+Submitted batch job 11426656
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 1e-5 4
+Submitted batch job 11426699
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 1e-5 4
+Submitted batch job 11426707
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 2
+Submitted batch job 11426714
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 2
+Submitted batch job 11426716
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 3
+Submitted batch job 11426724
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 3
+Submitted batch job 11426727
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 32 5e-6 4
+Submitted batch job 11426730
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 32 5e-6 4
+Submitted batch job 11426744
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 2
+Submitted batch job 11426754
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 2
+Submitted batch job 11426768
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 3
+Submitted batch job 11426875
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 3
+Submitted batch job 11426884
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-5 4
+Submitted batch job 11426905
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-5 4
+Submitted batch job 11426921
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 2
+Submitted batch job 11426985
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 2
+Submitted batch job 11426995
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 3
+Submitted batch job 11426997
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 3
+Submitted batch job 11426999
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 3e-5 4
+Submitted batch job 11427003
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 3e-5 4
+Submitted batch job 11427008
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 2
+Submitted batch job 11427012
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 2
+Submitted batch job 11427013
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 3
+Submitted batch job 11427016
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 3
+Submitted batch job 11427019
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 2e-5 4
+Submitted batch job 11427024
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 2e-5 4
+Submitted batch job 11427028
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 2
+Submitted batch job 11427033
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 2
+Submitted batch job 11427036
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 3
+Submitted batch job 11427037
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 3
+Submitted batch job 11427040
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 1e-5 4
+Submitted batch job 11427045
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 1e-5 4
+Submitted batch job 11427050
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 2
+Submitted batch job 11427053
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 2
+Submitted batch job 11427056
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 3
+Submitted batch job 11427059
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 3
+Submitted batch job 11427063
+
+Submitting job with params models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 256 64 5e-6 4
+Submitted batch job 11427066
+
+Submitting job with params models/biobert_large /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 96 64 5e-6 4
+Submitted batch job 11427068
