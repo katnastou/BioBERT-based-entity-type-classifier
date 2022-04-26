@@ -1,10 +1,10 @@
 #!/bin/bash
 # Definining resource we want to allocate. We set 8 tasks, 4 tasks over 2 nodes as we have 4 GPUs per node.
-#SBATCH --nodes=2
-#SBATCH --ntasks=8
+#SBATCH --nodes=1
+#SBATCH --ntasks=4
 
 # 6 CPU cores per task to keep the parallel data feeding going. 
-#SBATCH --cpus-per-task=6
+#SBATCH --cpus-per-task=10
 
 # Allocate enough memory.
 #SBATCH --mem=200G
@@ -37,12 +37,12 @@ module load tensorflow/1.15-hvd
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
-#comment if you don't want to delete output
-# function on_exit {
-#    rm -rf "$OUTPUT_DIR"
-#    rm -f jobs/$SLURM_JOBID
-# }
-# trap on_exit EXIT
+# comment if you don't want to delete output
+function on_exit {
+   rm -rf "$OUTPUT_DIR"
+   rm -f jobs/$SLURM_JOBID
+}
+trap on_exit EXIT
 
 #check for all parameters
 if [ "$#" -ne 9 ]; then
@@ -56,6 +56,7 @@ fi
 #models --> symlink to models dir in scratch
 #scratchdata --> symlink to data dir in scratch
 #fill all so you don't check for params
+
 BERT_DIR="$1"
 DATASET_DIR="$2"
 MAX_SEQ_LENGTH="$3"
@@ -65,6 +66,7 @@ EPOCHS="$6"
 TASK="$7"
 INIT_CKPT="$8"
 LABELS_DIR="$9"
+
 ## uncomment in case you want to use uncased models - it has to be in the model's name to work
 # if [[ $BERT_DIR =~ "uncased" ]]; then
 #     cased="--do_lower_case"

@@ -38,11 +38,11 @@ OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
 #comment if you don't want to delete output
-function on_exit {
-   rm -rf "$OUTPUT_DIR"
-   rm -f jobs/$SLURM_JOBID
-}
-trap on_exit EXIT
+# function on_exit {
+#    rm -rf "$OUTPUT_DIR"
+#    rm -f jobs/$SLURM_JOBID
+# }
+# trap on_exit EXIT
 
 #check for all parameters
 if [ "$#" -ne 9 ]; then

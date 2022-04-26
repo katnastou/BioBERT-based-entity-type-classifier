@@ -1,6 +1,6 @@
 sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
-Submitted batch job 11441626
+Submitted batch job 11479028
 sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
-Submitted batch job 11441628
+Submitted batch job 11500116
 sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
-Submitted batch job 11441629
+Submitted batch job 11500117
