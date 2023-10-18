@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#author: Sampo Pyysalo, @github:spyysalo
 # Make local blacklist based on classifier predictions
 
 import sys

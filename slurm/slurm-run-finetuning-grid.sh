@@ -11,7 +11,7 @@
 #SBATCH -p gpu
 ###SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
-#SBATCH -t 24:00:00
+#SBATCH -t 12:00:00
 ###SBATCH -t 00:15:00
 #SBATCH -J 125k_grid
 
@@ -31,8 +31,17 @@
 
 # Clear all modules
 module purge
-#load tensorflow with horovod support
-module load tensorflow/1.15-hvd
+module load tykky
+
+#conda-containerize new --prefix conda-env env.yml
+export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env/bin:$PATH"
+#python3 -m venv venv
+source venv/bin/activate
+#python -m pip install --upgrade pip
+#python -m pip install nvidia-pyindex==1.0.5
+#python -m pip install nvidia-tensorflow[horovod]==1.15.5
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
@@ -51,7 +60,7 @@ if [ "$#" -ne 9 ]; then
 fi
 
 #command example from BERT folder in projappl dir:
-#sbatch slurm/slurm-run.sh models/biobert_large scratchdata/4-class-10K-w20 64 32 5e-6 4 consensus models/biobert_large/bert_model.ckpt
+#sbatch slurm/slurm-run-finetuning-grid.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 32 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
 
 #models --> symlink to models dir in scratch
 #scratchdata --> symlink to data dir in scratch
@@ -92,7 +101,7 @@ export NCCL_P2P_DISABLE=1
 
 echo "START $SLURM_JOBID: $(date)"
 
-srun python run_ner_consensus.py \
+python3 run_ner_consensus.py \
     --do_prepare=true \
     --do_train=true \
     --do_eval=true \
@@ -129,5 +138,5 @@ echo -n 'f-score'$'\t'"$f_score"$'\t'
 echo -n 'accuracy'$'\t'"$result"$'\n'
 
 
-gpuseff $SLURM_JOBID
+seff $SLURM_JOBID
 

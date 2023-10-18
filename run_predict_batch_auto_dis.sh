@@ -24,9 +24,7 @@ type="consensus"
 labels_dir="data/biobert/other"
 
 #all files from 000-299
-#NAME="dis-contexts-w100-0[0-9][0-9].tsv"
-#NAME="dis-contexts-w100-1[0-9][0-9].tsv"
-NAME="dis-contexts-w100-2[0-9][0-9].tsv"
+NAME="dis-contexts-w100-[0-2][0-9][0-9].tsv"
 
 for dataset in $(ls $data_dir); do
     #if dataset filename is between 00-49

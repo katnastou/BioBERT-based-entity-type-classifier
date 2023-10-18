@@ -24,15 +24,7 @@ type="consensus"
 labels_dir="data/biobert/other"
 
 #all files from 000-299
-#NAME="che-contexts-w100-0[0-9][0-9].tsv"
-#NAME="che-contexts-w100-1[0-9][0-9].tsv"
-#NAME="che-contexts-w100-2[0-9][0-9].tsv"
-#NAME="che-contexts-w100-047.tsv"
-#NAME="che-contexts-w100-142.tsv"
-#NAME="che-contexts-w100-200.tsv"
-#NAME="che-contexts-w100-255.tsv"
-NAME="che-contexts-w100-268.tsv"
-#NAME="che-contexts-w100-227.tsv"
+NAME="che-contexts-w100-[0-2][0-9][0-9].tsv"
 
 
 for dataset in $(ls $data_dir); do

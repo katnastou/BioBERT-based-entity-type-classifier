@@ -8,11 +8,11 @@
 
 # Allocate enough memory.
 #SBATCH --mem=200G
-#SBATCH -p gpu
-###SBATCH -p gputest
+###SBATCH -p gpu
+#SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
-#SBATCH -t 72:00:00
-###SBATCH -t 00:15:00
+###SBATCH -t 72:00:00
+#SBATCH -t 00:15:00
 #SBATCH -J 12.5M
 
 # Allocate 4 GPUs on each node.
@@ -31,18 +31,27 @@
 
 # Clear all modules
 module purge
-#load tensorflow with horovod support
-module load tensorflow/1.15-hvd
+module load tykky
+
+#conda-containerize new --prefix conda-env env.yml
+export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env/bin:$PATH"
+#python3 -m venv venv
+source venv/bin/activate
+#python -m pip install --upgrade pip
+#python -m pip install nvidia-pyindex==1.0.5
+#python -m pip install nvidia-tensorflow[horovod]==1.15.5
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
 # comment if you don't want to delete output
-function on_exit {
-   rm -rf "$OUTPUT_DIR"
-   rm -f jobs/$SLURM_JOBID
-}
-trap on_exit EXIT
+# function on_exit {
+#    rm -rf "$OUTPUT_DIR"
+#    rm -f jobs/$SLURM_JOBID
+# }
+# trap on_exit EXIT
 
 #check for all parameters
 if [ "$#" -ne 9 ]; then
@@ -131,5 +140,5 @@ echo -n 'f-score'$'\t'"$f_score"$'\t'
 echo -n 'accuracy'$'\t'"$result"$'\n'
 
 
-gpuseff $SLURM_JOBID
+seff $SLURM_JOBID
 

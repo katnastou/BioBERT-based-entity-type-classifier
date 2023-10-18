@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#author: Sampo Pyysalo, @github:spyysalo
 # Suggest candidates for global blacklist based on local blacklists
 
 import sys
