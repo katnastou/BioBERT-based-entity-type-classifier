@@ -59,7 +59,7 @@ if [ "$#" -ne 7 ]; then
     exit 1
 fi
 #command example from BERT folder in projappl dir:
-#sbatch slurm/slurm-run-eval-big.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
+#sbatch slurm/slurm-run-eval-big.sh /scratch/project_2001426/katerina/output-biobert/multigpu/11515370 /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 consensus /scratch/project_2001426/katerina/output-biobert/multigpu/11515370/model.ckpt-48828 data/biobert/other
 
 
 #models --> symlink to models dir in scratch
@@ -70,11 +70,9 @@ BERT_DIR="$1"
 DATASET_DIR="$2"
 MAX_SEQ_LENGTH="$3"
 BATCH_SIZE="$4"
-LEARNING_RATE="$5"
-EPOCHS="$6"
-TASK="$7"
-INIT_CKPT="$8"
-LABELS_DIR="$9"
+TASK="$5"
+INIT_CKPT="$6"
+LABELS_DIR="$7"
 
 ## uncomment in case you want to use uncased models - it has to be in the model's name to work
 # if [[ $BERT_DIR =~ "uncased" ]]; then
