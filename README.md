@@ -30,7 +30,7 @@ The best model is BioBERT base with a `learning rate=2e-5,	number_of_epochs=4,	m
 
 ## Technical considerations on Puhti
 
-In order for this to work one needs to have a working installation of tensorflow 1.15 with horovod support. [Tensorflow 1.x support was deprecated on Puhti](https://docs.csc.fi/apps/tensorflow/), so one needs to set up an environment first before running the scripts.
+In order for this to work one needs to have a working installation of Tensorflow 1.15 with horovod support. [Tensorflow 1.x support was deprecated on Puhti](https://docs.csc.fi/apps/tensorflow/), so one needs to set up an environment first before running the scripts.
 
 ```
 module purge
@@ -46,6 +46,9 @@ python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/venv/lib/
 ```
+
+Instructions to install Tensorflow 1.15 with horovod support locally can be found here: https://www.pugetsystems.com/labs/hpc/how-to-install-tensorflow-1-15-for-nvidia-rtx30-gpus-without-docker-or-cuda-install-2005/
+
 
 In order to train the method for span classification one needs to call the `run_ner_consensus.py` with the following commands:
 
