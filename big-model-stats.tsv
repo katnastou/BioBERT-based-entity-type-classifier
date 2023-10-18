@@ -1,0 +1,1 @@
+models/biobert_v1.1_pubmed/model.ckpt-1000000	learning_rate	2e-5	num_train_epochs	1	train_batch_size	32	max_seq_length	256	[96.67, 96.67, 96.64, 96.67]	96.66	0.0130
