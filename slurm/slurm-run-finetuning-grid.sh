@@ -41,7 +41,7 @@ source venv/bin/activate
 #python -m pip install nvidia-pyindex==1.0.5
 #python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/
+export LD_LIBRARY_PATH=/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/:$LD_LIBRARY_PATH
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
