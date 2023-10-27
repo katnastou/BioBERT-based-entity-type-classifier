@@ -30,7 +30,7 @@ Download training data
 tar -xvzf 125k-w100_grid_search_set.tar.gz
 rm 125k-w100_grid_search_set.tar.gz
 ```
-
+```
 conda update -n base -c conda-forge conda
 conda env create --name conda-env -f env.yml
 conda activate conda-env
@@ -57,7 +57,7 @@ cd tensorflow-1.15.5-nv23.03
 bazel build //tensorflow/tools/pip_package:build_pip_package
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 pip install /tmp/tensorflow_pkg/tensorflow-1.15.5-nv23.03-*.whl
-
+```
 
 ## Steps to train/finetune the model on the Puhti supercomputer
 
