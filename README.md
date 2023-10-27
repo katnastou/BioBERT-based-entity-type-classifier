@@ -12,19 +12,22 @@ There are 2 datasets included in the Zenodo project:
 ### Grid search to find a set of hyperparameters for the big model
 Run the script ./run-finetuning-grid.sh which invokes the script `slurm/slurm-run-finetuning-grid.sh` to run a grid search on the dataset with 125k examples with the following hyperparameters:
 ```
-models = BioBERT base, BioBERT large
+models = BioBERT base
 mini batch size = 32, 64
 learning rate = 5e-5, 3e-5, 2e-5, 1e-5, 5e-6
 number of epochs = 2, 3, 4
-maximum sequence length = 96 (BioBERT large), 256 (BioBERT base)
+maximum sequence length = 256 
 ```
 Preliminary experiments showed that the maximum sequence length that could fit in memory provided the best results for the models and we decided to go with that option.
 
-[Link with results from grid search](https://docs.google.com/spreadsheets/d/1YnDUO12wSxcg-MAqJ9_dg35hUwszVQRqeRPn6K76-MU/edit?usp=sharing)
+[Link with results from grid search](https://docs.google.com/spreadsheets/d/1kfypTjb_1YUncyqHSgwaD2fEjNaxGCF9vMigj87tB9E/edit?usp=sharing)
 
-The best model is BioBERT base with a `learning rate=2e-5,	number_of_epochs=4,	mini_batch_size=32,	MSL=256`, with a mean `F-score=94.93 (SD=0.017)` on dev set.
+The best model is BioBERT base with a `learning rate=2e-5,	number_of_epochs=2,	mini_batch_size=32,	MSL=256`, with a mean `F-score=94.83 (SD=0.0356)` on the development set.
+
+To get the stats for the finetuning grid run: `python3 get_stat.py <logs_dir> <output_filename>` (e.g. `python3 get_stat.py finetuning-grid-logs/ finetuning-grid-results.tsv`)
 
 ### Training the big model
+
 
 ### Running on Prediction mode for large scale runs
 
@@ -37,14 +40,24 @@ module purge
 #https://docs.csc.fi/computing/containers/tykky/
 module load tykky
 conda-containerize new --prefix conda-env env.yml
-export PATH="path/to/conda-env/bin:$PATH"
+
 python3 -m venv venv
 source venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install nvidia-pyindex==1.0.5
 python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/venv/lib/
+#set up openmpi version 4.0.1
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
+tar -xzf openmpi-4.0.1.tar.gz
+rm openmpi-4.0.1.tar.gz 
+cd openmpi-4.0.1
+./configure --prefix=/path/to/install_dir_for_openmpi
+make all
+make install
+
+export PATH=/users/katenast/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
 ```
 
 Instructions to install Tensorflow 1.15 with horovod support locally can be found here: https://www.pugetsystems.com/labs/hpc/how-to-install-tensorflow-1-15-for-nvidia-rtx30-gpus-without-docker-or-cuda-install-2005/
