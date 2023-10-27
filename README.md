@@ -10,19 +10,26 @@ There are 2 datasets included in the Zenodo project:
 
 
 ## Minimal installation instructions on a linux system
-#clone the repository
+clone the repository
+
+```
 git clone https://github.com/katnastou/BioBERT-based-entity-type-classifier.git
 cd BioBERT-based-entity-type-classifier 
+```
 
-# Download BioBERT model
-wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
+Download BioBERT model
+
+```wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
 tar -xvzf biobert_v1.1_pubmed.tar.gz -C models
 rm biobert_v1.1_pubmed.tar.gz
+```
 
-# Download training data
-wget https://zenodo.org/api/records/10008720/draft/files/125k-w100_grid_search_set.tar.gz #update link 
+Download training data
+
+```wget https://zenodo.org/api/records/10008720/draft/files/125k-w100_grid_search_set.tar.gz #update link 
 tar -xvzf 125k-w100_grid_search_set.tar.gz
 rm 125k-w100_grid_search_set.tar.gz
+```
 
 conda update -n base -c conda-forge conda
 conda env create --name conda-env -f env.yml
