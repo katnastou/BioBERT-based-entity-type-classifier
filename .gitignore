@@ -3,3 +3,6 @@ results
 output-biobert
 venv
 conda-venv
+__pycache__
+conda-env
+finetuning-grid-logs

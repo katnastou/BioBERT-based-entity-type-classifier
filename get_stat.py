@@ -25,7 +25,7 @@ def get_results_from_one_log_file(file_path):
     with open (file_path) as f:
         for line in f:
             if line.startswith("TEST-RESULT"):
-                x = re.compile(r"^TEST-RESULT\s+init_checkpoint\s+(?P<init_checkpoint>\S+)\s+data_dir\s+(?P<data_dir>\S+)\s+max_seq_length\s+(?P<max_seq_length>\d+)\s+train_batch_size\s+(?P<train_batch_size>\d+)\s+learning_rate\s+(?P<learning_rate>\S+)\s+num_train_epochs\s+(?P<num_train_epochs>\d+)\s+accuracy\s+(?P<accuracy>\d+\.\d+)$")
+                x = re.compile(r"^TEST-RESULT\s+init_checkpoint\s+(?P<init_checkpoint>\S+)\s+data_dir\s+(?P<data_dir>\S+)\s+max_seq_length\s+(?P<max_seq_length>\d+)\s+train_batch_size\s+(?P<train_batch_size>\d+)\s+learning_rate\s+(?P<learning_rate>\S+)\s+num_train_epochs\s+(?P<num_train_epochs>\d+)\s+f-score\s+(?P<f_score>\d+\.\d+)\s+accuracy\s+(?P<accuracy>\d+\.\d+)$")
                 match = x.search(line)
                 if match is not None:
                     params = match.groupdict()

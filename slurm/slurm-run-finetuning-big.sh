@@ -13,7 +13,7 @@
 # Time limit on Puhti's gpu partition is 3 days.
 #SBATCH -t 72:00:00
 ###SBATCH -t 00:15:00
-#SBATCH -J 12.5M
+#SBATCH -J 12.5M-4
 
 # Allocate 4 GPUs on each node.
 #SBATCH --gres=gpu:v100:4
@@ -25,23 +25,24 @@
 # Puhti project number
 #SBATCH --account=Project_2001426
 
-# Log file locations, %j corresponds to slurm job id. symlinks didn't work. Will add hard links to directory instead. Now it saves in projappl dir.
+# Log file locations, %j corresponds to slurm job id.
 #SBATCH -o logs/%j.out
 #SBATCH -e logs/%j.err
 
 # Clear all modules
 module purge
-module load tykky
+# module load tykky
 
-#conda-containerize new --prefix conda-env env.yml
-export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env/bin:$PATH"
+# #conda-containerize new --prefix conda-env env.yml
+# export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env-c/bin:$PATH"
 #python3 -m venv venv
 source venv/bin/activate
 #python -m pip install --upgrade pip
 #python -m pip install nvidia-pyindex==1.0.5
 #python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
-export LD_LIBRARY_PATH=/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/:$LD_LIBRARY_PATH
+export PATH=/users/katenast/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
@@ -64,7 +65,7 @@ fi
 
 #models --> symlink to models dir in scratch
 #scratchdata --> symlink to data dir in scratch
-#fill all so you don't check for params
+
 
 BERT_DIR="$1"
 DATASET_DIR="$2"
@@ -103,7 +104,7 @@ export NCCL_P2P_DISABLE=1
 
 echo "START $SLURM_JOBID: $(date)"
 
-python3 run_ner_consensus.py \
+mpiexec --bind-to socket -np 4 python3 run_ner_consensus.py \
     --do_prepare=true \
     --do_train=true \
     --do_eval=true \

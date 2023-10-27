@@ -1,5 +1,5 @@
-tensorflow >= 1.11.0   # CPU Version of TensorFlow.
-# tensorflow-gpu  >= 1.11.0  # GPU version of TensorFlow.
+#tensorflow == 1.15.5   # CPU Version of TensorFlow.
+#tensorflow-gpu == 1.15.5  # GPU version of TensorFlow.
 toposort
 networkx
 pytest
@@ -7,3 +7,7 @@ nltk
 tqdm
 html2text
 progressbar
+
+#for multigpu on linux
+nvidia-pyindex==1.0.5
+nvidia-tensorflow[horovod]==1.15.5

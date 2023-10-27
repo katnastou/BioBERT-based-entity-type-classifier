@@ -11,7 +11,7 @@
 #SBATCH -p gpu
 ###SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
-#SBATCH -t 12:00:00
+#SBATCH -t 06:00:00
 ###SBATCH -t 00:15:00
 #SBATCH -J 125k_grid
 
@@ -25,28 +25,31 @@
 # Puhti project number
 #SBATCH --account=Project_2001426
 
-# Log file locations, %j corresponds to slurm job id. symlinks didn't work. Will add hard links to directory instead. Now it saves in projappl dir.
+# Log file locations, %j corresponds to slurm job id.
 #SBATCH -o logs/%j.out
 #SBATCH -e logs/%j.err
 
 # Clear all modules
 module purge
-module load tykky
+# module load tykky
 
 #conda-containerize new --prefix conda-env env.yml
-export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env/bin:$PATH"
+# export PATH="/projappl/project_2001426/BERT-based-entity-type-classifier/conda-env-c/bin:$PATH"
 #python3 -m venv venv
 source venv/bin/activate
 #python -m pip install --upgrade pip
 #python -m pip install nvidia-pyindex==1.0.5
 #python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
-export LD_LIBRARY_PATH=/projappl/project_2001426/BERT-based-entity-type-classifier/venv/lib/:$LD_LIBRARY_PATH
+#change the paths to your local installation of openmpi
+
+export PATH=/users/katenast/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
-#comment if you don't want to delete output
+# comment if you don't want to delete output
 # function on_exit {
 #    rm -rf "$OUTPUT_DIR"
 #    rm -f jobs/$SLURM_JOBID
@@ -59,12 +62,13 @@ if [ "$#" -ne 9 ]; then
     exit 1
 fi
 
+
 #command example from BERT folder in projappl dir:
 #sbatch slurm/slurm-run-finetuning-grid.sh models/biobert_v1.1_pubmed /scratch/project_2001426/data-may-2020/5-class-125K-w100-filtered-shuffled 32 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
 
 #models --> symlink to models dir in scratch
 #scratchdata --> symlink to data dir in scratch
-#fill all so you don't check for params
+
 BERT_DIR="$1"
 DATASET_DIR="$2"
 MAX_SEQ_LENGTH="$3"
@@ -74,6 +78,7 @@ EPOCHS="$6"
 TASK="$7"
 INIT_CKPT="$8"
 LABELS_DIR="$9"
+
 ## uncomment in case you want to use uncased models - it has to be in the model's name to work
 # if [[ $BERT_DIR =~ "uncased" ]]; then
 #     cased="--do_lower_case"

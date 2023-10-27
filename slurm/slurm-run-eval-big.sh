@@ -105,7 +105,7 @@ python3 run_ner_consensus.py \
     --do_prepare=true \
     --do_train=false \
     --do_eval=true \
-    --do_predict=true \
+    --do_predict=false \
     --replace_span="[unused1]" \
     --task_name=$TASK \
     --init_checkpoint=$INIT_CKPT \
