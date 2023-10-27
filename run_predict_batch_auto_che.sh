@@ -1,20 +1,12 @@
 #!/bin/bash
 
 MAX_JOBS=300
-#output-biobert is a symlink to the project output folder
-#mkdir -p output-biobert/predictions/large
+
 mkdir -p output-biobert/predictions/che-blocklists-v12
 
-#large trained model: 2595163/model.ckpt-74483
-#base trained model: 2603931/model.ckpt-74483
-#better base model 2699830/model.ckpt-74483
-#/scratch/project_2001426/output-biobert/multigpu/2595163/model.ckpt-74483
-
 MODELS="
-/scratch/project_2001426/katerina/output-biobert/multigpu/11515370/model.ckpt-48828
+/scratch/project_2001426/katerina/output-biobert/multigpu/19143192/model.ckpt-48828
 "
-#old base model
-#/scratch/project_2001426/katerina/output-biobert/multigpu/2699830/model.ckpt-48828
 
 batch_size="32"
 
@@ -26,6 +18,7 @@ labels_dir="data/biobert/other"
 #all files from 000-299
 NAME="che-contexts-w100-[0-2][0-9][0-9].tsv"
 
+PRED_DIR="/scratch/project_2001426/stringdata/STRING-blocklists-v12/che-predictions"
 
 for dataset in $(ls $data_dir); do
     #if dataset filename is between 00-49
@@ -37,32 +30,18 @@ for dataset in $(ls $data_dir); do
         cp $path_to_dataset "$current_data_dir/dev.tsv"
         cp $path_to_dataset "$current_data_dir/test.tsv"
         for model in $MODELS; do
-            if [[ "$model" =~ "2595163" ]]; then
-                #large model
-                config_dir="models/biobert_large"
-                max_seq_len="96";
-                while true; do
-                #change to base for base model
-                    jobs=$(ls output-biobert/predictions/large | wc -l)
-                    if [ $jobs -lt $MAX_JOBS ]; then break; fi
-                        echo "Too many jobs ($jobs), sleeping ..."
-                        sleep 60
-                done
-            else
-                #base model
-                max_seq_len="256"
-                config_dir="models/biobert_v1.1_pubmed"
-                while true; do
-                #change to base for base model
-                    jobs=$(ls output-biobert/predictions/che-blocklists-v12 | wc -l)
-                    if [ $jobs -lt $MAX_JOBS ]; then break; fi
-                        echo "Too many jobs ($jobs), sleeping ..."
-                        sleep 60
-                done
-            fi
+            #base model
+            max_seq_len="256"
+            config_dir="models/biobert_v1.1_pubmed"
+            while true; do
+                jobs=$(ls output-biobert/predictions/che-blocklists-v12 | wc -l)
+                if [ $jobs -lt $MAX_JOBS ]; then break; fi
+                    echo "Too many jobs ($jobs), sleeping ..."
+                    sleep 60
+            done
             echo "Submitting job with params $model $dataset $max_seq_len $batch_size"
                 job_id=$(
-                sbatch slurm/slurm-run-predict-che.sh \
+                sbatch slurm/slurm-run-predict.sh \
                     $config_dir \
                     $current_data_dir \
                     $max_seq_len \
@@ -70,13 +49,11 @@ for dataset in $(ls $data_dir); do
                     $type \
                     $model \
                     $labels_dir \
+                    $PRED_DIR \
                     | perl -pe 's/Submitted batch job //'
                 )
             echo "Submitted batch job $job_id"
-            #change to base for base model
-            if [[ "$model" =~ "2595163" ]]; then touch output-biobert/predictions/large/$job_id; fi
-            sleep 5
-            if [[ "$model" =~ "11515370" ]]; then touch output-biobert/predictions/che-blocklists-v12/$job_id; fi
+            touch output-biobert/predictions/che-blocklists-v12/$job_id
             sleep 5
         done
     fi

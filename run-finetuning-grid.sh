@@ -6,7 +6,6 @@ mkdir -p output-biobert/finetuning
 
 MODELS="
 models/biobert_v1.1_pubmed
-models/biobert_large
 "
 
 DATA_DIRS="
@@ -23,19 +22,13 @@ REPETITIONS=3
 
 task="consensus"
 labels_dir="data/biobert/other"
-
+seq_len="256"
+init_ckpt="models/biobert_v1.1_pubmed/model.ckpt-1000000"
 for repetition in `seq $REPETITIONS`; do
 	for batch_size in $BATCH_SIZES; do
 	    for learning_rate in $LEARNING_RATES; do
             for epochs in $EPOCHS; do
                 for model in $MODELS; do
-                    if [[ "$model" =~ "large" ]]; then
-                        seq_len="96";
-                        init_ckpt="models/biobert_large/bert_model.ckpt"
-                    else
-                        seq_len="256";
-                        init_ckpt="models/biobert_v1.1_pubmed/model.ckpt-1000000"
-                    fi
                     for data_dir in $DATA_DIRS; do
                         while true; do
                             jobs=$(ls output-biobert/finetuning/ | wc -l)
