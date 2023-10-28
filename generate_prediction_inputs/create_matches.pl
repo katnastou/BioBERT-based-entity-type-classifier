@@ -4,7 +4,8 @@ use strict;
 use POSIX;
 
 my %serial_type_identifier = ();
-open IN, "< tagger-all-dictionary/all_entities.tsv";
+open (IN,'<',$ARGV[0])
+#open IN, "< dictionary-files-tagger-STRINGv12/all_entities.tsv";
 while (<IN>) {
 	s/\r?\n//;
 	my ($serial, $type, $identifier) = split /\t/;
@@ -12,8 +13,8 @@ while (<IN>) {
 }
 close IN;
 
-open IN, "< all_matches.tsv";
-open OUT, "> database_matches.tsv";
+open (IN,'<',$ARGV[1])
+open (OUT,'>',$ARGV[2])
 while (<IN>) {
 	s/\r?\n//;
 	my ($document, undef, undef, $start, $stop, undef, $type, $serial) = split /\t/;

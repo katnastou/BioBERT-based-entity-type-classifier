@@ -4,7 +4,8 @@ use strict;
 use POSIX;
 
 my %seen = ();
-open IN, "< tagger-all-dictionary/excluded_documents.txt";
+
+open (IN,'<',$ARGV[0])
 while (<IN>) {
 	s/\r?\n//;
 	$seen{$_} = 1;
@@ -12,7 +13,7 @@ while (<IN>) {
 close IN;
 
 open IN, "gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |";
-open OUT, "> database_documents.tsv";
+open (OUT,'>',$ARGV[1])
 while (<IN>) {
 	s/\r?\n//;
 	s/\\/\\\\/g;
