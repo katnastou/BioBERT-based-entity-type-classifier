@@ -37,9 +37,9 @@ python3 run_ner_consensus.py \
     --num_train_epochs=$EPOCHS \
     --cased=$cased \
     --labels_dir=$LABELS_DIR \
-    --use_xla \
-    --use_fp16 \
-    --horovod
+    --use_fp16 #\
+#    --use_xla \
+#   --horovod
 
 
 echo "Ready"
