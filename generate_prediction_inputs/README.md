@@ -4,6 +4,14 @@ Input documents for large-scale execution: all [PubMed abstracts](https://a3s.fi
 
 Input dictionary files: all the files necessary to execute tagger are available in [dictionary-files-tagger-STRINGv12.tar.gz](https://zenodo.org/api/records/10008720/files/dictionary-files-tagger-STRINGv12.zip?download=1)
 
+## General setup on a linux system
+
+Run `setup-general.sh`. This script will download all the necessary files and run on prediction mode to generate all blocklists. Make sure you have set up your system as instructed in the main `README` file of this repository. 
+
+## Setup on the Puhti supercomputer
+
+Simply run `./setup.sh`. This script will submit slurm jobs on the server, so you need to ensure that you are on a supercomputer running the slurm workload manager.
+
 ## What happens next
 
 After the last step you should have the automatically blocklists for all entity types targeted. Then these are added in the tagger dictionary build (one can simply concatenate the curated and auto lists, taking into consideration that the curated lists are preferred when there are clashes) and you get to run with the new dictionary. To recreate the process to generate results as they are provided in STRING v12 one needs to run the tagger as follows: 
