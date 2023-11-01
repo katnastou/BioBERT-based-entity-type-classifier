@@ -53,6 +53,8 @@ export PATH=$HOME/python38/bin:$PATH
 python --version
 ```
 
+If you don't need to install python 3.8 you can directly skip to this step:
+
 ```
 python3.8 -m venv venv
 source venv/bin/activate
