@@ -119,43 +119,20 @@ cd openmpi-4.0.1
 make all
 make install
 
-export PATH=/users/katenast/openmpi/bin:$PATH
-export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
+export PATH=/path/to/install_dir_for_openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/path/to/install_dir_for_openmpi/lib:$LD_LIBRARY_PATH
 ```
 
 Instructions to install Tensorflow 1.15 with horovod support locally can be found here: https://www.pugetsystems.com/labs/hpc/how-to-install-tensorflow-1-15-for-nvidia-rtx30-gpus-without-docker-or-cuda-install-2005/
 
 
-In order to train the method for span classification one needs to call the `run_ner_consensus.py` with the following commands:
-
+In order to train the method for span classification one needs to execute 
 ```
-python3 run_ner_consensus.py \
-    --do_prepare=true \
-    --do_train=true \
-    --do_eval=true \
-    --do_predict=false \
-    --replace_span="[unused1]" \
-    --task_name=$TASK \
-    --init_checkpoint=$INIT_CKPT \
-    --vocab_file=$BERT_DIR/vocab.txt \
-    --bert_config_file=$BERT_DIR/bert_config.json \
-    --data_dir=$DATASET_DIR \
-    --output_dir=$OUTPUT_DIR \
-    --eval_batch_size=$BATCH_SIZE \
-    --predict_batch_size=$BATCH_SIZE \
-    --max_seq_length=$MAX_SEQ_LENGTH \
-    --learning_rate=$LEARNING_RATE \
-    --num_train_epochs=$EPOCHS \
-    --cased=$cased \
-    --labels_dir=$LABELS_DIR \
-    --use_xla \
-    --use_fp16 \
-    --horovod
+./run-entity-classification.sh
 ```
 
-where `replace_span` is the span to replace the named entity in focus, in case of masking (no replacement is done if left undefined), `task_name` is the name of the NER task (consensus in this case), `init_checkpoint` is the checkpoint of the model (should change to the trained model during prediction), `vocab_file` is the vocabulary file of BERT (same directory as the original model), `bert_config_file` is the configuration json of the model, `data_dir` is the directory with input data, `output_dir` is the directory with output data, `eval_batch_size` and `predict_batch_size` is the batch size, `max_seq_length` is the maximum sequence length in tokens, `learning_rate`, `num_training_epochs` are the initial learning rate and the maximum number of training epochs, `cased` is the flag to define whether to run with lower case or not, based on the model, `labels_dir` is the directory with the labels file containing the labels for the supervised training task and finally, the last options (`use_xla`, `use_fp16` and `horovod` are required for training on multi-node/multi-gpu settings). 
+the shell script calls the `run_ner_consensus.py` with some default values. Check the script for more details. 
 
-Example data can be found under `data/biobert/example-data`  and the labels file is under `data/biobert/other`
 
 When using XLA on Puhti you might come across errors complaining about a file called `libdevice` or `ptxas`. These errors are caused by Puhti's environment being slightly broken with regards to CUDA, possibly due to inflexibility on CUDA's side. The problem can be solved by creating a symlink to the files in the BERT directory. Currently the files are in `/appl/spack/install-tree/gcc-8.3.0/cuda-10.1.168-mrdepn/bin/ptxas` and `/appl/spack/install-tree/gcc-8.3.0/cuda-10.1.168-mrdepn/nvvm/libdevice/libdevice.10.bc`, however these locations may change with CUDA updates. 
 
