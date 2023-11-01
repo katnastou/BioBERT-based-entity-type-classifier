@@ -66,6 +66,21 @@ python3.8 -m pip install nvidia-pyindex==1.0.5 #or from file: https://files.pyth
 python3.8 -m pip install nvidia-tensorflow[horovod]==1.15.5 #or from file: https://github.com/NVIDIA/tensorflow/archive/refs/tags/v1.15.5+nv23.03.tar.gz
 ```
 
+Install openmpi and update your paths:
+
+```
+wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
+tar -xzf openmpi-4.0.1.tar.gz
+rm openmpi-4.0.1.tar.gz 
+cd openmpi-4.0.1
+./configure --prefix=${HOME}/openmpi
+make all
+make install
+cd ..
+export PATH=${HOME}/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=${HOME}/openmpi/lib:$LD_LIBRARY_PATH
+```
+
 And you are good to go!
 
 Test your installation by running this script:
@@ -73,6 +88,9 @@ Test your installation by running this script:
 ```
 ./run-entity-classification.sh
 ```
+
+Instructions to install Tensorflow 1.15 with horovod support locally can also be found here: https://www.pugetsystems.com/labs/hpc/how-to-install-tensorflow-1-15-for-nvidia-rtx30-gpus-without-docker-or-cuda-install-2005/
+
 
 ## Steps to train/finetune the model on the Puhti supercomputer
 
@@ -99,11 +117,16 @@ To get the stats for the finetuning grid run: `python3 get_stat.py <logs_dir> <o
 We have trained a model with the large dataset using the best set of hyperparameters. 
 The command on a supercomputer with a slurm workload manager to rerun the training is: `sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed 12.5M-w100_train_test_set 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other`
 The results on the test set are: mean F-score=96.67% (SD=0).
-This model has been used to run predictions and generate blocklists for all entity classes for [STRING database v12](https://string-db.org/), [DISEASES](https://diseases.jensenlab.org/Search) and [ORGANISMS](https://organisms.jensenlab.org/Search), as well as updating [dictionary files](https://jensenlab.org/resources/textmining/#dictionaries) for Jensenlab tagger. 
+This model has been used to run predictions and generate blocklists for [STRING database v12](https://string-db.org/), [DISEASES](https://diseases.jensenlab.org/Search), and [ORGANISMS](https://organisms.jensenlab.org/Search), as well as updating [dictionary files](https://jensenlab.org/resources/textmining/#dictionaries) for Jensenlab tagger. 
 
 ### Running on Prediction mode for large-scale runs
 
-The script to run on prediction mode for all types is `run_predict_batch_auto_all_types.sh`. 
+The script to run on prediction mode for all types is:
+
+```
+run_predict_batch_auto_all_types.sh
+```
+
 Running the bash script `./run_predict_batch_auto_che.sh` invokes the slurm script `slurm/slurm-run-predict.sh` to submit all jobs and generate predictions for all types, which are later used to generate probabilities.
 
 Look at the `README` file and the setup scripts (`setup.sh` and `setup-general.sh`) within the `generate_prediction_inputs` directory for more details on how to run the entire pipeline from start to finish.
@@ -112,7 +135,8 @@ Look at the `README` file and the setup scripts (`setup.sh` and `setup-general.s
 
 ## Technical considerations on Puhti
 
-In order for this to work one needs to have a working installation of Tensorflow 1.15 with horovod support. [Tensorflow 1.x support was deprecated on Puhti](https://docs.csc.fi/apps/tensorflow/), so one needs to set up an environment first before running the scripts.
+In order for this to work one needs to have a working installation of Tensorflow 1.15 with horovod support. [Tensorflow 1.x support was deprecated on Puhti](https://docs.csc.fi/apps/tensorflow/), so one needs to set up an environment first before running the scripts. 
+To set this up on Puhti follow the instructions below:
 
 ```
 module purge
@@ -131,25 +155,20 @@ wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
 tar -xzf openmpi-4.0.1.tar.gz
 rm openmpi-4.0.1.tar.gz 
 cd openmpi-4.0.1
-./configure --prefix=/path/to/install_dir_for_openmpi
+./configure --prefix=${HOME}/openmpi
 make all
 make install
 
-export PATH=/path/to/install_dir_for_openmpi/bin:$PATH
-export LD_LIBRARY_PATH=/path/to/install_dir_for_openmpi/lib:$LD_LIBRARY_PATH
+export PATH=${HOME}/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=${HOME}/openmpi/lib:$LD_LIBRARY_PATH
 ```
 
-Instructions to install Tensorflow 1.15 with horovod support locally can be found here: https://www.pugetsystems.com/labs/hpc/how-to-install-tensorflow-1-15-for-nvidia-rtx30-gpus-without-docker-or-cuda-install-2005/
+In order to train a model with the large dataset for span classification one needs to execute:
 
-
-In order to train the method for span classification one needs to execute 
 ```
-./run-entity-classification.sh
+sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed 12.5M-w100_train_test_set 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other
 ```
 
-the shell script calls the `run_ner_consensus.py` with some default values. Check the script for more details. 
+the shell script calls the `run_ner_consensus.py` with some default values. Check the script for more details on what. 
 
-
-When using XLA on Puhti you might come across errors complaining about a file called `libdevice` or `ptxas`. These errors are caused by Puhti's environment being slightly broken with regards to CUDA, possibly due to inflexibility on CUDA's side. The problem can be solved by creating a symlink to the files in the BERT directory. Currently the files are in `/appl/spack/install-tree/gcc-8.3.0/cuda-10.1.168-mrdepn/bin/ptxas` and `/appl/spack/install-tree/gcc-8.3.0/cuda-10.1.168-mrdepn/nvvm/libdevice/libdevice.10.bc`, however these locations may change with CUDA updates. 
-
-
+For instructions on how to run the model in prediction mode check `setup.sh` under the `generate_prediction_inputs` directory in this repository.
