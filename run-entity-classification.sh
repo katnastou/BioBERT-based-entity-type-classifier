@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BERT_DIR="models/biobert_v1.1_pubmed"
-DATASET_DIR="data/biobert/example-data"
+DATASET_DIR="data/biobert/example_data"
 MAX_SEQ_LENGTH="256"
 BATCH_SIZE="32"
 LEARNING_RATE="2e-5"
