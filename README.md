@@ -19,45 +19,38 @@ cd BioBERT-based-entity-type-classifier
 
 Download BioBERT model
 
-```wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
+```
+wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
+mkdir -p models
 tar -xvzf biobert_v1.1_pubmed.tar.gz -C models
 rm biobert_v1.1_pubmed.tar.gz
 ```
 
 Download training data
 
-```wget https://zenodo.org/api/records/10008720/draft/files/125k-w100_grid_search_set.tar.gz #update link 
-tar -xvzf 125k-w100_grid_search_set.tar.gz
+```
+wget https://zenodo.org/api/records/10008720/files/125k-w100_grid_search_set.tar.gz
+mkdir -p data
+tar -xvzf 125k-w100_grid_search_set.tar.gz -C data
 rm 125k-w100_grid_search_set.tar.gz
 ```
+
+You can either do the next step with conda or by creating a python virtual environment
+
+A. Conda: install conda before proceeding. Instructions can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
+If you are on a server with conda environments pre-installed, load one that supports at least python3.8. See detailed requirements [here](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-wheel-release-notes/tf-wheel-rel.html#rel_23-03)
+
 ```
-conda update -n base -c conda-forge conda
-conda env create --name conda-env -f env.yml
+conda env create --name conda-env -f env.yml 
 conda activate conda-env
 conda update pip
-brew install libuv
-pip install --user -r requirements.txt
-HOROVOD_WITHOUT_MPI=1 HOROVOD_WITH_TENSORFLOW=1 pip install --no-cache-dir --user horovod
-
-docker pull nvcr.io/nvidia/tensorflow:23.02-tf1-py3
+pip3 install --user -r requirements.txt
 
 ./run_entity_classification.py
-
-
-cd "/usr/local/Cellar/bazel/6.4.0/libexec/bin" && curl -fLO https://releases.bazel.build/0.25.3/release/bazel-0.25.3-darwin-x86_64 && chmod +x bazel-0.25.3-darwin-x86_64
-cd
-conda update -n base -c conda-forge conda
-conda env create --name conda-env -f env.yml
-conda activate conda-env
-wget https://github.com/NVIDIA/tensorflow/archive/refs/tags/v1.15.5+nv23.03.zip
-unzip v1.15.5+nv23.03.zip
-rm v1.15.5+nv23.03.zip
-cd tensorflow-1.15.5-nv23.03
-./configure
-bazel build //tensorflow/tools/pip_package:build_pip_package
-./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-pip install /tmp/tensorflow_pkg/tensorflow-1.15.5-nv23.03-*.whl
 ```
+
+B. Python virtual environment
+
 
 ## Steps to train/finetune the model on the Puhti supercomputer
 
