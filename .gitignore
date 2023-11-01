@@ -6,3 +6,8 @@ conda-venv
 __pycache__
 conda-env
 finetuning-grid-logs
+generate_prediction_inputs/dictionary-files-tagger-STRINGv12
+generate_prediction_inputs/auto-only
+generate_prediction_inputs/no-block
+generate_prediction_inputs/delme
+generate_prediction_inputs/curated-only

@@ -1,9 +1,41 @@
 #!/bin/bash
+# Definining resource we want to allocate.
+#SBATCH --nodes=1
+#SBATCH --ntasks=40
+
+# 5 CPU cores per task to keep the parallel data feeding going. 
+#SBATCH --cpus-per-task=1
+
+# Allocate enough memory.
+#SBATCH --mem=162G
+#SBATCH -p small
+###SBATCH -p gputest
+
+# Time limit on Puhti's small partition is 3 days. 72:00:00
+#SBATCH -t 48:00:00
+###SBATCH -t 00:30:00
+#SBATCH -J sortsp
+
+# Puhti project number
+#SBATCH --account=Project_2001426
+
+# Log file locations, %j corresponds to slurm job id. symlinks didn't work. Will add hard links to directory instead. Now it saves in projappl dir.
+#SBATCH -o logs/%j.out
+#SBATCH -e logs/%j.err
+
+# Clear all modules
+mkdir -p logs
+
+module purge
+module load python-data
 
 #run the script to do the spliting in n (here 300) files
 mkdir -p split
-python3 split_string.py -n 300 -s .tsv database_documents.tsv split/database_documents-
-python3 split_string.py -n 300 -s .tsv database_matches.tsv split/database_matches-
+DB_DOCS="$1"
+DB_MATCHES="$2"
+
+python3 split_string.py -n 300 -s .tsv "$DB_DOCS" split/database_documents- 
+python3 split_string.py -n 300 -s .tsv "$DB_MATCHES" split/database_matches-
 
 #sort the split files
 mkdir -p sorted-split

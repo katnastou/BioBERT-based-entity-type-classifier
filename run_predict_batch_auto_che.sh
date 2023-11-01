@@ -20,6 +20,8 @@ NAME="che-contexts-w100-[0-2][0-9][0-9].tsv"
 
 PRED_DIR="/scratch/project_2001426/stringdata/STRING-blocklists-v12/che-predictions"
 
+JOB_DIR="output-biobert/predictions/che-blocklists-v12"
+
 for dataset in $(ls $data_dir); do
     #if dataset filename is between 00-49
     if [[ "${dataset##*./}" =~ ${NAME} ]]; then
@@ -34,7 +36,7 @@ for dataset in $(ls $data_dir); do
             max_seq_len="256"
             config_dir="models/biobert_v1.1_pubmed"
             while true; do
-                jobs=$(ls output-biobert/predictions/che-blocklists-v12 | wc -l)
+                jobs=$(ls ${JOB_DIR} | wc -l)
                 if [ $jobs -lt $MAX_JOBS ]; then break; fi
                     echo "Too many jobs ($jobs), sleeping ..."
                     sleep 60
@@ -50,10 +52,11 @@ for dataset in $(ls $data_dir); do
                     $model \
                     $labels_dir \
                     $PRED_DIR \
+                    $JOB_DIR \
                     | perl -pe 's/Submitted batch job //'
                 )
             echo "Submitted batch job $job_id"
-            touch output-biobert/predictions/che-blocklists-v12/$job_id
+            touch "${JOB_DIR}/${job_id}"; 
             sleep 5
         done
     fi

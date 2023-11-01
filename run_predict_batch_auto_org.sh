@@ -20,6 +20,8 @@ NAME="org-contexts-w100-[0-2][0-9][0-9].tsv"
 
 PRED_DIR="/scratch/project_2001426/stringdata/STRING-blocklists-v12/org-predictions"
 
+JOB_DIR="output-biobert/predictions/org-blocklists-v12"
+
 for dataset in $(ls $data_dir); do
     if [[ "${dataset##*./}" =~ ${NAME} ]]; then
         path_to_dataset="$data_dir/$dataset"
@@ -33,7 +35,7 @@ for dataset in $(ls $data_dir); do
             config_dir="models/biobert_v1.1_pubmed"
             while true; do
             #change to base for base model
-                jobs=$(ls output-biobert/predictions/org-blocklists-v12 | wc -l)
+                jobs=$(ls ${JOB_DIR} | wc -l)
                 if [ $jobs -lt $MAX_JOBS ]; then break; fi
                     echo "Too many jobs ($jobs), sleeping ..."
                     sleep 60
@@ -49,10 +51,11 @@ for dataset in $(ls $data_dir); do
                     $model \
                     $labels_dir \
                     $PRED_DIR \
+                    $JOB_DIR \
                     | perl -pe 's/Submitted batch job //'
                 )
             echo "Submitted batch job $job_id"
-            touch output-biobert/predictions/org-blocklists-v12/$job_id;
+            touch "${JOB_DIR}/${job_id}"; 
             sleep 5
         done
     fi

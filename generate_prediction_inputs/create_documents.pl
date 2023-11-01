@@ -5,15 +5,19 @@ use POSIX;
 
 my %seen = ();
 
-open (IN,'<',$ARGV[0])
+open IN, "<", $ARGV[0];
+#open IN, "< dictionary-files-tagger-STRINGv12/excluded_documents.txt";
 while (<IN>) {
 	s/\r?\n//;
 	$seen{$_} = 1;
 }
 close IN;
 
-open IN, "gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |";
-open (OUT,'>',$ARGV[1])
+my $command = $ARGV[1];
+open IN, "$command" or die "Cannot open pipe: $!";
+#open IN, "gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |";
+open OUT, ">", $ARGV[2];
+#open OUT,  "> database_documents.tsv";
 while (<IN>) {
 	s/\r?\n//;
 	s/\\/\\\\/g;

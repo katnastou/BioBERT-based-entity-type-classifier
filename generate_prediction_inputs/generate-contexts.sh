@@ -16,6 +16,7 @@
 
 # Puhti project number
 #SBATCH --account=Project_2001426
+#SBATCH -J context
 
 # Log file locations, %j corresponds to slurm job id. symlinks didn't work. Will add hard links to directory instead. Now it saves in projappl dir.
 #SBATCH -o logs/%j.out
@@ -34,9 +35,18 @@ echo "START $SLURM_JOBID: $(date)"
 
 TYPE="$1"
 i="$2"
-python3 get_contexts.py \
+if [[ ${TYPE} != "org" ]]; then
+    python3 get_contexts.py \
         -t ${TYPE} \
         -w 100 \
         sorted-split/database_{documents,matches}-$i.tsv \
         > split-contexts/${TYPE}-contexts-w100-$i.tsv \
         2>delme/${TYPE}_contexts-$i.txt
+else
+    python3 get_contexts.py \
+        -t ${TYPE} \
+        -w 100 \
+        sorted-split-org-only-first-species/database_{documents,matches}-$i.tsv \
+        > split-contexts/${TYPE}-contexts-w100-$i.tsv \
+        2>delme/${TYPE}_contexts-$i.txt
+fi

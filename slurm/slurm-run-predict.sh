@@ -11,9 +11,9 @@
 #SBATCH -p gpu
 ###SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
-#SBATCH -t 32:00:00
+#SBATCH -t 12:00:00 ### update the time based on the size of the input files
 ###SBATCH -t 00:15:00
-#SBATCH -J 125k_grid
+#SBATCH -J predict
 
 # Allocate 4 GPUs on each node.
 #SBATCH --gres=gpu:v100:1
@@ -50,16 +50,11 @@ export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
 
-#uncomment to delete output!!!
-#function on_exit {
-#    rm -rf "$OUTPUT_DIR"
-#    rm -f jobs/$SLURM_JOBID
-#}
-#trap on_exit EXIT
+
 
 #check for all parameters
-if [ "$#" -ne 8 ]; then
-    echo "Usage: $0 model_dir data_dir max_seq_len batch_size task init_checkpoint labels_dir predictions_dir"
+if [ "$#" -ne 9 ]; then
+    echo "Usage: $0 model_dir data_dir max_seq_len batch_size task init_checkpoint labels_dir predictions_dir job_dir"
     exit 1
 fi
 #command example from BERT folder in projappl dir:
@@ -73,6 +68,14 @@ TASK="$5"
 INIT_CKPT="$6"
 LABELS_DIR="$7"
 PRED_DIR="$8" 
+JOB_DIR="$9"
+
+JOB_FILE=${JOB_DIR}/${SLURM_JOBID}
+
+function on_exit {
+   rm -rf ${JOB_FILE}
+}
+trap on_exit EXIT
 
 # #fix in case you want to use uncased models
 # #start with this 
