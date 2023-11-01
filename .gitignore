@@ -11,3 +11,4 @@ generate_prediction_inputs/auto-only
 generate_prediction_inputs/no-block
 generate_prediction_inputs/delme
 generate_prediction_inputs/curated-only
+generate_prediction_inputs/curated+auto

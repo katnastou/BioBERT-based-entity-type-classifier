@@ -8,12 +8,12 @@
 
 # Allocate enough memory.
 #SBATCH --mem=162G
+###SBATCH -p test
 #SBATCH -p small
-###SBATCH -p gputest
 
 # Time limit on Puhti's small partition is 3 days. 72:00:00
-#SBATCH -t 24:00:00
-###SBATCH -t 00:30:00
+#SBATCH -t 48:00:00
+###SBATCH -t 00:15:00
 #SBATCH -J Jentag
 
 # Puhti project number
@@ -58,3 +58,6 @@ ${TAGGER} \
 
 echo -n 'result written in '"$OUT_DIR"$'\n'
 seff $SLURM_JOBID
+
+
+

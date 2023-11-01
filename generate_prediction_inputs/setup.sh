@@ -27,8 +27,7 @@ monitor_job_completion() {
 # comment the next lines if you have already set up tagger
 git clone https://github.com/larsjuhljensen/tagger tagger
 cd tagger
-make 
-#make tagcorpus to skip swig
+make tagcorpus #to skip swig
 cd ..
 
 #download the dictionary files and the corpus
@@ -57,7 +56,12 @@ job_name="Jentag"  # Replace 'your_job_name' with the actual Slurm job name - ch
 USER="katenast"
 
 #generate matches in the correct format with identifiers
-monitor_job_completion "$job_name" "$USER" sbatch slurm-create-matches-docs.sh dictionary-files-tagger-STRINGv12/all_entities.tsv results/all_matches.tsv results/database_matches.tsv dictionary-files-tagger-STRINGv12/excluded_documents.txt 'gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |' results/database_documents.tsv
+monitor_job_completion "$job_name" "$USER" sbatch slurm-create-matches.sh dictionary-files-tagger-STRINGv12/all_entities.tsv results/all_matches.tsv results/database_matches.tsv
+
+#generate docs if not already generated
+if [ ! -f "results/database_documents.tsv" ]; then
+    monitor_job_completion "$job_name" "$USER" sbatch slurm-create-docs.sh dictionary-files-tagger-STRINGv12/excluded_documents.txt 'gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |' results/database_documents.tsv
+fi
 
 job_name="matches"
 # Initial sort and split job
@@ -77,5 +81,5 @@ monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_ggp.sh
 monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_org.sh
 
 job_name="predict"
-monitor_job_completion "$job_name" "$USER" sbatch ../blocklist_generation/generate-blocklists.sh /scratch/project_2001426/stringdata/STRING-blocklists-v12/
+monitor_job_completion "$job_name" "$USER" sbatch ../blocklist_generation/generate-blocklists.sh blocklists-dir # the dir shoulf be the same as in the run_predict_batch_auto_all.sh script
 

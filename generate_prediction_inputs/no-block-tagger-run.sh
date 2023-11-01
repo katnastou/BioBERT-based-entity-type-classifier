@@ -27,7 +27,7 @@ sbatch slurm-tagger.sh \
     dictionary-files-tagger-STRINGv12/empty_global.tsv \
     dictionary-files-tagger-STRINGv12/curated_local.tsv \
     no-block \
-    /scratch/project_2001426/stringdata/tagger/tagcorpus
+    /scratch/project_2001426/stringdata/tagger-no-regex/tagcorpus
 
 
 job_name="Jentag"  # Replace 'your_job_name' with the actual Slurm job name - check the slurm script for that
