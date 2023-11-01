@@ -9,7 +9,8 @@ EPOCHS="4"
 TASK="consensus"
 INIT_CKPT="models/biobert_v1.1_pubmed/model.ckpt-1000000"
 LABELS_DIR="data/biobert/other"
-
+OUTPUT_DIR="output-biobert"
+mkdir -p $OUTPUT_DIR
 
 echo "data dir: $DATASET_DIR" 
 echo "model: $BERT_DIR"
