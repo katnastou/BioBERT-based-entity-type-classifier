@@ -5,8 +5,8 @@
 # comment the next lines if you have already set up tagger
 git clone https://github.com/larsjuhljensen/tagger tagger
 cd tagger
-make 
-#make tagcorpus to skip swig
+#make 
+make tagcorpus #to skip swig
 cd ..
 
 #download the dictionary files and the corpus
@@ -162,10 +162,10 @@ for TYPE in $TYPES; do
                 --predict_batch_size=$BATCH_SIZE \
                 --max_seq_length=$MAX_SEQ_LEN \
                 --use_fp16 \
-                --use_xla \
-                --horovod \
                 --cased=$cased \
-                --labels_dir=$LABELS_DIR
+                --labels_dir=$LABELS_DIR #\
+#                --use_xla \
+#                --horovod \
 
             paste <(paste ${DATASET_DIR}"/test.tsv" ${OUTPUT_DIR}"/test_output_labels.txt") ${OUTPUT_DIR}"/test_results.tsv" | awk -F'\t' '{printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t\'\{\''che'\'': %s'\,' '\''dis'\'': %s'\,' '\''ggp'\'': %s'\,' '\''org'\'': %s'\,' '\''out'\'': %s'\}'\n",$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)}' > ${OUTPUT_DIR}"/output_with_probabilities_dict.tsv"; 
             #remove everything up to last - 
