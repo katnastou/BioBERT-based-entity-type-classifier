@@ -69,7 +69,7 @@ And you are good to go!
 Test your installation by running this script:
 
 ```
-./run_entity_classification.sh
+./run-entity-classification.sh
 ```
 
 ## Steps to train/finetune the model on the Puhti supercomputer
