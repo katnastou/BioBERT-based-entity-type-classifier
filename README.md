@@ -6,18 +6,19 @@ Scripts have been modified from the [NVIDIA codebase](https://github.com/NVIDIA/
 The consensus datasets that are used to train the model are available [here](https://doi.org/10.5281/zenodo.10008720).
 There are 2 datasets included in the Zenodo project: 
 1. A **small dataset** with ca.125,000 training and 62,500 development examples used to perform a grid search to detect the best set of hyperparameters (125k-w100_grid_search_set)
-2. A **large dataset** of 10 million training and 62,500 testing examples to train the model used for prediction with the set of best hyperparameters identified above (12.5M-w100_train_test_set)
+2. A **large dataset** of 12.5 million training and 62,500 testing examples to train the model used for prediction with the set of best hyperparameters identified above (12.5M-w100_train_test_set)
 
 
 ## Minimal installation instructions on a linux system
-clone the repository
+
+Clone the repository
 
 ```
 git clone https://github.com/katnastou/BioBERT-based-entity-type-classifier.git
 cd BioBERT-based-entity-type-classifier 
 ```
 
-Download BioBERT model
+Download BioBERT base model
 
 ```
 wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
@@ -26,7 +27,7 @@ tar -xvzf biobert_v1.1_pubmed.tar.gz -C models
 rm biobert_v1.1_pubmed.tar.gz
 ```
 
-Download training data
+Download training data from Zenodo
 
 ```
 wget https://zenodo.org/api/records/10008720/files/125k-w100_grid_search_set.tar.gz
@@ -35,25 +36,43 @@ tar -xvzf 125k-w100_grid_search_set.tar.gz -C data
 rm 125k-w100_grid_search_set.tar.gz
 ```
 
-You can either do the next step with conda or by creating a python virtual environment
+Install conda before proceeding. Instructions can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
+If you are on a server with conda environments pre-installed, you could alternatively load one that supports at least Python 3.8. See detailed requirements for the nvidia-tensorflow package [here](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-wheel-release-notes/tf-wheel-rel.html#rel_23-03)
 
-A. Conda: install conda before proceeding. Instructions can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
-If you are on a server with conda environments pre-installed, load one that supports at least python3.8. See detailed requirements [here](https://docs.nvidia.com/deeplearning/frameworks/tensorflow-wheel-release-notes/tf-wheel-rel.html#rel_23-03)
+If you need to set up Python:
 
 ```
-conda env create --name conda-env -f env.yml 
-conda activate conda-env
-conda update pip
-pip3 install --user -r requirements.txt
-
-./run_entity_classification.py
+wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz
+tar -xzvf Python-3.8.12.tgz
+cd Python-3.8.12
+./configure --prefix=$HOME/python38
+make
+make install
+export PATH=$HOME/python38/bin:$PATH
+#verify installation
+python --version
 ```
 
-B. Python virtual environment
+```
+python3.8 -m venv venv
+source venv/bin/activate
+python3.8 -m pip install --upgrade pip
+python3.8 -m pip install --upgrade setuptools
+python3.8 -m pip install wheel
+python3.8 -m pip cache purge
+python3.8 -m pip install nvidia-pyindex==1.0.5 #or from file: https://files.pythonhosted.org/packages/64/4c/dd413559179536b9b7247f15bf968f7e52b5f8c1d2183ceb3d5ea9284776/nvidia-pyindex-1.0.5.tar.gz
+python3.8 -m pip install nvidia-tensorflow[horovod]==1.15.5 #or from file: https://github.com/NVIDIA/tensorflow/archive/refs/tags/v1.15.5+nv23.03.tar.gz
+```
 
+And you are good to go!
+
+Test your installation by running this script:
+
+```
+./run_entity_classification.sh
+```
 
 ## Steps to train/finetune the model on the Puhti supercomputer
-
 
 ### Grid search to find a set of hyperparameters 
 Run the script `./run-finetuning-grid.sh` which invokes the script `slurm/slurm-run-finetuning-grid.sh` to run a grid search with the small dataset with the following hyperparameters:
@@ -76,14 +95,16 @@ To get the stats for the finetuning grid run: `python3 get_stat.py <logs_dir> <o
 ### Training the model with the large dataset
 
 We have trained a model with the large dataset using the best set of hyperparameters. 
-The command on a slurm supercomputer to rerun the training is: `sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed 12.5M-w100_train_test_set 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other`
-The results on the test set are: mean F-score= (SD=).
-This model has been used to run predictions and generate blocklists for all entity classes for [Jensenlab resources](https://jensenlab.org/resources/). 
+The command on a supercomputer with a slurm workload manager to rerun the training is: `sbatch slurm/slurm-run-finetuning-big.sh models/biobert_v1.1_pubmed 12.5M-w100_train_test_set 256 32 2e-5 1 consensus models/biobert_v1.1_pubmed/model.ckpt-1000000 data/biobert/other`
+The results on the test set are: mean F-score=96.67% (SD=0).
+This model has been used to run predictions and generate blocklists for all entity classes for [STRING database v12](https://string-db.org/), [DISEASES](https://diseases.jensenlab.org/Search) and [ORGANISMS](https://organisms.jensenlab.org/Search), as well as updating [dictionary files](https://jensenlab.org/resources/textmining/#dictionaries) for Jensenlab tagger. 
 
-### Running on Prediction mode for large scale runs
+### Running on Prediction mode for large-scale runs
 
-The scripts to run on prediction mode are `run_predict_batch_auto_{che,org,dis,ggp}.sh`. 
-If, for example, one runs the script `./run_predict_batch_auto_che.sh` the script `slurm/slurm-run-predict.sh` will be invoked and run predictions on all examples of chemical mentions.
+The script to run on prediction mode for all types is `run_predict_batch_auto_all_types.sh`. 
+Running the bash script `./run_predict_batch_auto_che.sh` invokes the slurm script `slurm/slurm-run-predict.sh` to submit all jobs and generate predictions for all types, which are later used to generate probabilities.
+
+Look at the `README` file and the setup scripts (`setup.sh` and `setup-general.sh`) within the `generate_prediction_inputs` directory for more details on how to run the entire pipeline from start to finish.
 
 
 
