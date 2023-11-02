@@ -36,14 +36,14 @@ echo "START $SLURM_JOBID: $(date)"
 TYPE="$1"
 i="$2"
 if [[ ${TYPE} != "org" ]]; then
-    python3 get_contexts.py \
+    python3 ./scripts/get_contexts.py \
         -t ${TYPE} \
         -w 100 \
         sorted-split/database_{documents,matches}-$i.tsv \
         > split-contexts/${TYPE}-contexts-w100-$i.tsv \
         2>delme/${TYPE}_contexts-$i.txt
 else
-    python3 get_contexts.py \
+    python3 ./scripts/get_contexts.py \
         -t ${TYPE} \
         -w 100 \
         sorted-split-org-only-first-species/database_{documents,matches}-$i.tsv \

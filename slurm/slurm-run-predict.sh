@@ -11,7 +11,7 @@
 #SBATCH -p gpu
 ###SBATCH -p gputest
 # Time limit on Puhti's gpu partition is 3 days.
-#SBATCH -t 12:00:00 ### update the time based on the size of the input files
+#SBATCH -t 08:00:00 ### update the time based on the size of the input files
 ###SBATCH -t 00:15:00
 #SBATCH -J predict
 

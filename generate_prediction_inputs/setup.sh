@@ -47,8 +47,6 @@ tar -xzvf bert-base-finetuned-large-set.tar.gz -C models
 tar -xzvf biobert_v1.1_pubmed.tar.gz -C models
 rm *tar.gz *zip
 
-
-
 #run tagger with curated blocklists only
 sbatch slurm-tagger.sh dictionary-files-tagger-STRINGv12 . dictionary-files-tagger-STRINGv12/curated_global.tsv dictionary-files-tagger-STRINGv12/curated_local.tsv results tagger/tagcorpus
 
@@ -68,18 +66,17 @@ job_name="matches"
 monitor_job_completion "$job_name" "$USER" sbatch sort-split.sh results/database_documents.tsv results/database_matches.tsv
 
 # Monitoring and executing subsequent jobs
-job_name="sortsp"  # Replace 'your_job_name' with the actual Slurm job name - check the slurm script for that
+job_name="sortsp" 
 
 monitor_job_completion "$job_name" "$USER" ./run-context-split.sh
 
 #this is the job name of all the jobs submitted by the run-context-split.sh 
-job_name="context" # Replace 'your_job_name' with the actual Slurm job name - check the slurm script for that
+job_name="context"
 
-monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_che.sh
-monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_dis.sh
-monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_ggp.sh
-monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_org.sh
+monitor_job_completion "$job_name" "$USER" ../run_predict_batch_auto_all_types.sh
 
 job_name="predict"
-monitor_job_completion "$job_name" "$USER" sbatch ../blocklist_generation/generate-blocklists.sh blocklists-dir # the dir shoulf be the same as in the run_predict_batch_auto_all.sh script
+blocklists_dir="blocklists" # the dir should be the same as in the run_predict_batch_auto_all_types.sh script
+
+monitor_job_completion "$job_name" "$USER" sbatch ../blocklist_generation/generate-blocklists.sh "$blocklists_dir"
 

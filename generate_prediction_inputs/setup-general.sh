@@ -35,14 +35,14 @@ gzip -cd `ls -1 ./pmc/*.en.merged.filtered.tsv.gz` `ls -1r ./pubmed/*.tsv.gz` | 
     --out-segments=results/all_segments.tsv
 
 #generate matches in the correct format with identifiers
-./create_matches.pl dictionary-files-tagger-STRINGv12/all_entities.tsv results/all_matches.tsv results/database_matches.tsv
+./scripts/create_matches.pl dictionary-files-tagger-STRINGv12/all_entities.tsv results/all_matches.tsv results/database_matches.tsv
 
 #generate documents in a tab delimited format
-./create_documents.pl dictionary-files-tagger-STRINGv12/excluded_documents.txt 'gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |' results/database_documents.tsv
+./scripts/create_documents.pl dictionary-files-tagger-STRINGv12/excluded_documents.txt 'gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubmed/*.tsv.gz` |' results/database_documents.tsv
 
 mkdir -p split
-python3 split_string.py -n 300 -s .tsv results/database_documents.tsv split/database_documents- 
-python3 split_string.py -n 300 -s .tsv results/database_matches.tsv split/database_matches-
+python3 ./scripts/split_string.py -n 300 -s .tsv results/database_documents.tsv split/database_documents- 
+python3 ./scripts/split_string.py -n 300 -s .tsv results/database_matches.tsv split/database_matches-
 
 #sort the split files
 mkdir -p sorted-split
@@ -58,7 +58,7 @@ for i in {000..299}; do awk -F"\t" '!seen[$1,$2,$3,$4]++' split-org-only/databas
 
 #add rank to matches --> keep species only and remove last column
 mkdir -p split-org-only-first-ranked 
-for i in {000..299}; do python3 add_rank_db_matches.py split-org-only-first/database_matches-"$i".tsv > split-org-only-first-ranked/database_matches-"$i".tsv; done
+for i in {000..299}; do python3 ./scripts/add_rank_db_matches.py split-org-only-first/database_matches-"$i".tsv > split-org-only-first-ranked/database_matches-"$i".tsv; done
 
 #keep species only
 mkdir -p split-org-only-first-species
@@ -85,14 +85,14 @@ dis
 for i in {000..299}; do
     for TYPE in $TYPES; do
         if [[ ${TYPE} != "org" ]]; then
-            python3 get_contexts.py \
+            python3 ./scripts/get_contexts.py \
                 -t ${TYPE} \
                 -w 100 \
                 sorted-split/database_{documents,matches}-$i.tsv \
                 > split-contexts/${TYPE}-contexts-w100-$i.tsv \
                 2>delme/${TYPE}_contexts-$i.txt
         else
-            python3 get_contexts.py \
+            python3 ./scripts/get_contexts.py \
                 -t ${TYPE} \
                 -w 100 \
                 sorted-split-org-only-first-species/database_{documents,matches}-$i.tsv \
@@ -146,7 +146,7 @@ for TYPE in $TYPES; do
             mkdir -p $current_data_dir
             cp $path_to_dataset "$current_data_dir/dev.tsv"
             cp $path_to_dataset "$current_data_dir/test.tsv"
-            python3 run_ner_consensus.py \
+            python3 ../run_ner_consensus.py \
                 --do_prepare=true \
                 --do_train=true \
                 --do_eval=true \

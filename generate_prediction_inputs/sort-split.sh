@@ -34,8 +34,8 @@ mkdir -p split
 DB_DOCS="$1"
 DB_MATCHES="$2"
 
-python3 split_string.py -n 300 -s .tsv "$DB_DOCS" split/database_documents- 
-python3 split_string.py -n 300 -s .tsv "$DB_MATCHES" split/database_matches-
+python3 ./scripts/split_string.py -n 300 -s .tsv "$DB_DOCS" split/database_documents- 
+python3 ./scripts/split_string.py -n 300 -s .tsv "$DB_MATCHES" split/database_matches-
 
 #sort the split files
 mkdir -p sorted-split
@@ -53,7 +53,7 @@ for i in {000..299}; do awk -F"\t" '!seen[$1,$2,$3,$4]++' split-org-only/databas
 
 #add rank to matches --> keep species only and remove last column
 mkdir -p split-org-only-first-ranked 
-for i in {000..299}; do python3 add_rank_db_matches.py split-org-only-first/database_matches-"$i".tsv > split-org-only-first-ranked/database_matches-"$i".tsv; done
+for i in {000..299}; do python3 ./scripts/add_rank_db_matches.py split-org-only-first/database_matches-"$i".tsv > split-org-only-first-ranked/database_matches-"$i".tsv; done
 
 #keep species only
 mkdir -p split-org-only-first-species

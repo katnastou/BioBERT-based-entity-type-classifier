@@ -59,12 +59,8 @@ if [ "$#" -ne 7 ]; then
     exit 1
 fi
 #command example from BERT folder in projappl dir:
-#sbatch slurm/slurm-run-eval-big.sh /scratch/project_2001426/katerina/output-biobert/multigpu/11515370 /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 consensus /scratch/project_2001426/katerina/output-biobert/multigpu/11515370/model.ckpt-48828 data/biobert/other
+#sbatch slurm/slurm-run-eval-big.sh /scratch/project_2001426/katerina/output-biobert/multigpu/19143192 /scratch/project_2001426/data-may-2020/5-class-12.5M-w100-filtered-shuffled 256 32 consensus /scratch/project_2001426/katerina/output-biobert/multigpu/19143192/model.ckpt-48828 data/biobert/other
 
-
-#models --> symlink to models dir in scratch
-#scratchdata --> symlink to data dir in scratch
-#fill all so you don't check for params
 
 BERT_DIR="$1"
 DATASET_DIR="$2"

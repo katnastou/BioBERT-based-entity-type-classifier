@@ -35,6 +35,6 @@ INPUT_MATCHES="$2" #all_prediction_matches.tsv
 OUTPUT_MATCHES="$3"
 
 #generate matches in the correct format with identifiers
-./create_matches.pl "$ENTITIES" "$INPUT_MATCHES" "$OUTPUT_MATCHES"
+./scripts/create_matches.pl "$ENTITIES" "$INPUT_MATCHES" "$OUTPUT_MATCHES"
 
 

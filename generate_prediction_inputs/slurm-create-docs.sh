@@ -35,6 +35,6 @@ INPUT_DOCS="$2" #'gzip -cd `ls -1 pmc/*.en.merged.filtered.tsv.gz` `ls -1r pubme
 OUTPUT_DOCS="$3"
 
 #generate documents in a tab delimited format
-./create_documents.pl "$EXCLUDED_DOCS" "$INPUT_DOCS" "$OUTPUT_DOCS"
+./scripts/create_documents.pl "$EXCLUDED_DOCS" "$INPUT_DOCS" "$OUTPUT_DOCS"
 
 #sbatch slurm-create-docs.sh dictionary-files-tagger-STRINGv12/excluded_documents.txt 'gzip -cd `ls -1 /scratch/project_2001426/stringdata/stringdata-v12/tagger_input_docs/pmc/*.en.merged.filtered.tsv.gz` `ls -1r /scratch/project_2001426/stringdata/stringdata-v12/tagger_input_docs/pubmed/*.tsv.gz` |' database_documents.tsv
