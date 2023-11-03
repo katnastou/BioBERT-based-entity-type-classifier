@@ -142,11 +142,16 @@ To set this up on Puhti follow the instructions below:
 module purge
 #https://docs.csc.fi/computing/containers/tykky/
 module load tykky
+mkdir conda-env
 conda-containerize new --prefix conda-env env.yml
+#replace current path with your full path
+export PATH="/current_path/conda-env/bin:$PATH"
 
 python3 -m venv venv
 source venv/bin/activate
 python -m pip install --upgrade pip
+python -m pip install --upgrade setuptools
+python -m pip install wheel
 python -m pip install nvidia-pyindex==1.0.5
 python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
