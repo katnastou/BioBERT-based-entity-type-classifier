@@ -41,8 +41,8 @@ source venv/bin/activate
 #python -m pip install nvidia-pyindex==1.0.5
 #python -m pip install nvidia-tensorflow[horovod]==1.15.5
 
-export PATH=/users/katenast/openmpi/bin:$PATH
-export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
+export PATH=${HOME}/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=${HOME}/openmpi/lib:$LD_LIBRARY_PATH
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
 mkdir -p $OUTPUT_DIR
