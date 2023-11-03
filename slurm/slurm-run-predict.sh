@@ -43,8 +43,8 @@ source venv/bin/activate
 
 #change the paths to your local installation of openmpi
 
-export PATH=/users/katenast/openmpi/bin:$PATH
-export LD_LIBRARY_PATH=/users/katenast/openmpi/lib:$LD_LIBRARY_PATH
+export PATH=${HOME}/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=${HOME}/openmpi/lib:$LD_LIBRARY_PATH
 
 
 OUTPUT_DIR="output-biobert/multigpu/$SLURM_JOBID"
