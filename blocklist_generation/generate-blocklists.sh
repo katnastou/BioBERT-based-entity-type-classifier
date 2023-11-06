@@ -62,7 +62,7 @@ for type in $TYPES; do
         mkdir -p ${RUN_DIR}/local-blacklists-ratio-1000-${type}
         for f in ${RUN_DIR}/local_blacklists-01-${type}/*.tsv; do echo $f; python3 make_local_bw_lists.py --blacklist --ratio 1000 ${RUN_DIR}/global-non-${type}-probabilities-min-mentions-1-min-docs-2.tsv $f | sort -rn > ${RUN_DIR}/local-blacklists-ratio-1000-${type}/$(basename $f); done
         #allowlist/whitelist only for ggp
-        if [ $type == "ggp" ] then
+        if [ $type == "ggp" ]; then
             mkdir -p ${RUN_DIR}/local-whitelists-ratio-1e15-global-${type}-prob-0.3
             for f in ${RUN_DIR}/local_blacklists-01-${type}/*.tsv; do echo $f; python3 make_local_bw_lists.py --ratio 1000000000000000 --global-ggp-prob 0.3 ${RUN_DIR}/global-non-${type}-probabilities-min-mentions-1-min-docs-2.tsv $f | sort -rn > ${RUN_DIR}/local-whitelists-ratio-1e15-global-${type}-prob-0.3/$(basename $f); done
 
