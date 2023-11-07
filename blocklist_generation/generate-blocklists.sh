@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/bin/bash
+
 # Definining resource we want to allocate.
 #SBATCH --nodes=1
 #SBATCH --ntasks=40
