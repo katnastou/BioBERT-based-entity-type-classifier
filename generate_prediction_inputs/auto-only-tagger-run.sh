@@ -66,8 +66,8 @@ monitor_job_completion "$job_name" "$USER" cat /scratch/project_2001426/stringda
 monitor_job_completion "$job_name" "$USER" cp /scratch/project_2001426/stringdata/blocklists-paper/auto-only/auto_local.tsv  dictionary-files-tagger-STRINGv12/auto_only_local.txt
 monitor_job_completion "$job_name" "$USER" sbatch slurm-tagger.sh dictionary-files-tagger-STRINGv12 \
                                            /scratch/project_2001426/stringdata/stringdata-v12/tagger_input_docs \
-                                           dictionary-files-tagger-STRINGv12/auto_only_local.txt \
                                            dictionary-files-tagger-STRINGv12/blacklist_terms_over_10M+auto_only_list.txt \
+                                           dictionary-files-tagger-STRINGv12/auto_only_local.txt \
                                            auto-only/final-tagger-run \
                                            /scratch/project_2001426/stringdata/tagger/tagcorpus
 #this will give me the tagger results with auto-only for the evaluations

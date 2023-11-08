@@ -23,7 +23,7 @@ monitor_job_completion() {
 sbatch slurm-tagger.sh \
     dictionary-files-tagger-STRINGv12 \
     /scratch/project_2001426/stringdata/stringdata-v12/tagger_input_docs \
-    dictionary-files-tagger-STRINGv12/curated_global.txt \
+    dictionary-files-tagger-STRINGv12/curated_global.tsv \
     dictionary-files-tagger-STRINGv12/curated_local.tsv \
     curated-only \
     /scratch/project_2001426/stringdata/tagger/tagcorpus
