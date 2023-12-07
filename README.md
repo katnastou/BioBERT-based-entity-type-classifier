@@ -1,5 +1,7 @@
 # Training a multi-class classifier for increasing the accuracy of dictionary-based Named Entity Recognition
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10289360.svg)](https://doi.org/10.5281/zenodo.10289360)
+
 Scripts have been modified from the [NVIDIA codebase](https://github.com/NVIDIA/DeepLearningExamples) and adapted to work on the Finnish supercomputer [Puhti](https://docs.csc.fi/computing/systems-puhti/)
 
 ## Datasets
