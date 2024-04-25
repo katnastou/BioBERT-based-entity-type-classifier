@@ -31,7 +31,7 @@ make tagcorpus #to skip swig
 cd ..
 
 #download the dictionary files and the corpus
-wget https://zenodo.org/api/records/10008720/files/dictionary-files-tagger-STRINGv12.zip?download=1
+wget https://zenodo.org/records/10008720/files/dictionary-files-tagger-STRINGv12.zip?download=1 -O dictionary-files-tagger-STRINGv12.zip
 
 wget https://a3s.fi/s1000/PubMed-input.tar.gz
 wget https://a3s.fi/s1000/PMC-OA-input.tar.gz
@@ -41,7 +41,7 @@ tar -xzvf PMC-OA-input.tar.gz
 
 # Download the pre-trained and finetuned models
 mkdir -p models
-wget https://zenodo.org/api/records/10008720/files/bert-base-finetuned-large-set.tar.gz?download=1
+wget https://zenodo.org/records/10008720/files/bert-base-finetuned-large-set.tar.gz?download=1 -O bert-base-finetuned-large-set.tar.gz
 wget http://nlp.dmis.korea.edu/projects/biobert-2020-checkpoints/biobert_v1.1_pubmed.tar.gz
 tar -xzvf bert-base-finetuned-large-set.tar.gz -C models
 tar -xzvf biobert_v1.1_pubmed.tar.gz -C models
