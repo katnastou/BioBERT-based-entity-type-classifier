@@ -32,7 +32,7 @@ rm biobert_v1.1_pubmed.tar.gz
 Download training data from Zenodo
 
 ```
-wget https://zenodo.org/api/records/10008720/files/125k-w100_grid_search_set.tar.gz
+wget https://zenodo.org/records/10008720/files/125k-w100_grid_search_set.tar.gz
 mkdir -p data
 tar -xvzf 125k-w100_grid_search_set.tar.gz -C data
 rm 125k-w100_grid_search_set.tar.gz
